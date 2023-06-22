@@ -12,7 +12,7 @@ class Agent(models.Model):
 
 class Lead(models.Model):
 
-    MARRIED_STATUS = (
+    MARRIAGE_STATUS = (
         ('single', 'single'),
         ('married', 'married'),
         ('divorced', 'divorced'),
@@ -23,7 +23,7 @@ class Lead(models.Model):
     last_name = models.CharField(max_length=100, null=True)
     age = models.IntegerField(default=0)
     state = models.CharField(max_length=100, null=True)
-    marrital_status = models.CharField(max_length=50, choices=MARRIED_STATUS)
+    marrital_status = models.CharField(max_length=50, choices=MARRIAGE_STATUS)
     agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
     
     def __str__(self):

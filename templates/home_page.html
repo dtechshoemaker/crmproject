@@ -1,4 +1,24 @@
 {% for Lead in Leads  %}
     {% comment %} {{Agent.first_name}} {% endcomment %}
-    {{Lead}}
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="{% url 'core:lead' Lead.id %}">{{Lead.first_name}}</a></td>
+                <td>{{Lead.last_name}}</td>
+            </tr>
+        </tbody>
+        
+        <td><a href="{% url 'core:update_lead' Lead.id %}">Update</a></td>
+        <td><a href="{% url 'core:delete_lead' Lead.id %}">Delete</a></td>
+
+
+       
+    </table>
 {% endfor %}
+<a href="{% url 'core:create_lead' %}">Create Lead</a>
